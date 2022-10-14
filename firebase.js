@@ -5,6 +5,7 @@ import 'firebase/compat/firestore';
 const firebaseConfig = {
   apiKey: "AIzaSyDyRF_ySa4nsZopBsxgC-8xiksi9FM0Gvo",
   authDomain: "madlab-76605.firebaseapp.com",
+  databaseURL:'https://madlab-76605-default-rtdb.firebaseio.com/',
   projectId: "madlab-76605",
   storageBucket: "madlab-76605.appspot.com",
   messagingSenderId: "264377952190",

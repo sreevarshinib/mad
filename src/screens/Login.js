@@ -18,7 +18,7 @@ export default function Login() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.replace("HomePage")
+        navigation.replace("InputForm")
       }
     })
     return unsubscribe
@@ -58,7 +58,7 @@ export default function Login() {
         returnKeyType="next"
         onChangeText={text => setEmail(text)}
         error={!!email.error}
-        errorText={email.error}/>
+        errorText={email.error} />
       <TextInput
         label="Password"
         returnKeyType="done"
@@ -66,10 +66,15 @@ export default function Login() {
         error={!!password.error}
         errorText={password.error}
         secureTextEntry />
-      <Button mode="contained" onPress={handleLogin} style={styles.button}>Login</Button>
+      <Button onPress={handleLogin} style={styles.button}>Login</Button>
       <View style={styles.row}>
         <TouchableOpacity onPress={() => navigation.replace('SignupScreen')}>
           <Text style={styles.link}>Sign up</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.row}>
+        <TouchableOpacity onPress={() => navigation.replace('ListUsers')}>
+          <Text style={styles.link}>List all users</Text>
         </TouchableOpacity>
       </View>
       <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#560CCE"></ActivityIndicator>

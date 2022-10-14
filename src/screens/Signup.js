@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import { useNavigation } from '@react-navigation/core'
-import { StyleSheet, Text, TouchableOpacity, View ,ScrollView,ActivityIndicator,ToastAndroid} from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import { auth } from '../../firebase'
-import Background from '../components/Background'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 export default function Signup() {
-  const [isLoading, setisLoading] = useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigation = useNavigation()
   const handleSignUp = () => {
-    setisLoading(true);
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(userCredentials => {
@@ -51,7 +48,6 @@ export default function Signup() {
           <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
       </View>
-      <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#560CCE"/>
     </View>
   )
 }
