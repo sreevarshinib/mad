@@ -18,7 +18,7 @@ export default function App() {
           <Stack.Screen name='Login' component={Login} />
           <Stack.Screen name='SignupScreen' component={Signup}/>
           <Stack.Screen name='InputForm' component={InputForm}/>
-          <Stack.Screen name='Display' component={Display}/>
+          <Stack.Screen name='Display' component={Display}/> 
           <Stack.Screen name='Edit' component={Edit}/>          
           <Stack.Screen name='Logout' component={Logout}/>         
           <Stack.Screen name='ListUsers' component={ListUsers}/>
