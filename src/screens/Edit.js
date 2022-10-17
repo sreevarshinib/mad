@@ -61,7 +61,7 @@ export default function Edit() {
     return (
         <View style={styles.container}>
             <Header centerComponent={{ text: 'User', style: { color: '#fff', fontSize: 19 } }} backgroundColor="#000000"
-                leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigation.navigate("Display") }}
+                leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigation.navigate("HomePage") }}
                 rightComponent={{ text: 'Logout', style: { color: '#fff', fontSize: 14 }, onPress: () => navigation.navigate("Logout") }} />
             <ScrollView>
                 <TextInput label="Name" value={data.Name} onChangeText={text => setName(text)} style={{width:'90%',justifyContent:'center',alignSelf:'center'}}/>

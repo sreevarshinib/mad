@@ -17,6 +17,7 @@ export default function ListUsers() {
             querySnapshot.forEach(function (doc) {
                 if (userEmail.includes(doc.data().Email)) {
                     setData(doc.data())
+                    console.log(data)
                     setisLoading(false)
                 }
                 return unsubscribe
@@ -25,8 +26,8 @@ export default function ListUsers() {
     }, [])
     return (
         <View style={styles.container}>
-            <Header centerComponent={{ text: 'User', style: { color: '#fff', fontSize: 19 } }} backgroundColor="#000000"
-                leftComponent={{ icon: 'arrow-back', style: { color: '#fff', fontSize: 14 }, onPress: () => navigation.navigate("Login") }} />
+            <Header centerComponent={{ text: 'User', style: { color: '#fffff', fontSize: 19 } }} backgroundColor="#000000"
+                leftComponent={{ icon: 'arrow-back', style: { color: '#fffff', fontSize: 14 }, onPress: () => navigation.navigate("HomePage") }} />
             <View style={styles.container1}>
                 <DataTable>
                     <DataTable.Row style={styles.row}>

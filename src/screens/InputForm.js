@@ -32,8 +32,8 @@ export default function InputForm() {
   }
   return (
     <View style={styles.container}>
-      <Header centerComponent={{ text: 'User', style: { color: '#fff', fontSize: 19 } }}
-        backgroundColor="#000000" />
+      <Header centerComponent={{ text: 'User', style: { color: '#fff', fontSize: 19 } }}backgroundColor="#000000" 
+      leftComponent={{ icon: 'arrow-back', style: { color: '#fffff', fontSize: 14 }, onPress: () => navigation.navigate("HomePage") }}/>
       <ScrollView>
         <TextInput label="Name" onChangeText={text => setName(text)} style={{width:'90%',justifyContent:'center',alignSelf:'center'}}/>
         <TextInput label="Address" onChangeText={text => setAddress(text)} style={{width:'90%',justifyContent:'center',alignSelf:'center'}}/>
