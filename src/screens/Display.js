@@ -58,7 +58,7 @@ rightComponent={{ text:'Logout', style: { color: '#fff', fontSize: 14 } ,onPress
         </View>
       </View>
       <Button mode="contained" onPress={()=>navigation.navigate('Edit')} style={{justifyContent:'center',alignSelf:'center'}}>Edit</Button>
-      <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#560CCE" />
+      <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#ffffff" />
     </View>
   );
 }

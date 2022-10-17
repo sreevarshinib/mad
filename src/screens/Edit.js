@@ -19,7 +19,9 @@ export default function Edit() {
         const unsubscribe = firebase.firestore().collection('User').get().then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
                 if (userEmail.includes(doc.data().Email)) {
-                    setData(doc.data())
+                    // setData(doc.data())
+                    setName(doc.data().Name)
+                    setAddress(doc.data().Address)
                     setisLoading(false)
                 }
                 return unsubscribe
@@ -64,11 +66,11 @@ export default function Edit() {
                 leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: () => navigation.navigate("HomePage") }}
                 rightComponent={{ text: 'Logout', style: { color: '#fff', fontSize: 14 }, onPress: () => navigation.navigate("Logout") }} />
             <ScrollView>
-                <TextInput label="Name" value={data.Name} onChangeText={text => setName(text)} style={{width:'90%',justifyContent:'center',alignSelf:'center'}}/>
-                <TextInput label="Address" value={data.Address} onChangeText={text => setAddress(text)} style={{width:'90%',justifyContent:'center',alignSelf:'center'}}/>
+                <TextInput label="Name" value={name} onChangeText={text => setName(text)} style={{width:'90%',justifyContent:'center',alignSelf:'center'}}/>
+                <TextInput label="Address" value={address} onChangeText={text => setAddress(text)} style={{width:'90%',justifyContent:'center',alignSelf:'center'}}/>
             </ScrollView>
             <Button onPress={handleEdit} style={styles.button1}>Submit</Button>
-            <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#560CCE"></ActivityIndicator>
+            <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#ffffff"></ActivityIndicator>
         </View>
     )
 }

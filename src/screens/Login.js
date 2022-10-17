@@ -5,8 +5,6 @@ import { auth } from '../../firebase'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
-// import { ToastAndroid } from 'react-native'
-// import { SafeAreaView } from 'react-native-safe-area-context'
 import firebase from "firebase/compat";
 
 export default function Login() {
@@ -77,7 +75,7 @@ export default function Login() {
           <Text style={styles.link}>List all users</Text>
         </TouchableOpacity>
       </View>
-      <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#560CCE"></ActivityIndicator>
+      <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#ffffff"></ActivityIndicator>
     </View>
   )
 }
