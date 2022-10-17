@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/core'
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, ScrollView, ActivityIndicator } from 'react-native'
 import { firebase } from '../../firebase'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
@@ -11,8 +11,6 @@ export default function Edit() {
     const [address, setAddress] = useState('');
     const navigation = useNavigation();
     const [isLoading, setisLoading] = useState(true);
-    // const temp = firebase.auth().currentUser;
-    // const userEmail=temp.email
     const userEmail = 'sreevarshini13@gmail.com'
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -20,9 +18,9 @@ export default function Edit() {
             querySnapshot.forEach(function (doc) {
                 if (userEmail.includes(doc.data().Email)) {
                     // setData(doc.data())
-                    setName(doc.data().Name)
-                    setAddress(doc.data().Address)
-                    setisLoading(false)
+                    setName(doc.data().Name);
+                    setAddress(doc.data().Address);
+                    setisLoading(false);
                 }
                 return unsubscribe
             })
