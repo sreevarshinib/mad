@@ -10,18 +10,15 @@ export default function ListUsers() {
     const [data, setData] = useState([]);
     const [isLoading, setisLoading] = useState(true);
     const navigation = useNavigation();
-    useEffect(async() => {
+    useEffect(() => {
         firebase.firestore().collection('User').get().then(function (querySnapshot) {
-            const temp=[]
+            const temp = []
             querySnapshot.forEach(function (doc) {
-                // if (userEmail.includes(doc.data().Email)) {
-                //     setData(doc.data())
-                // }
-                
                 temp.push({
-                    id:doc.id,
-                    name:doc.data().Name,
-                    address:doc.data().Address,
+                    id: doc.id,
+                    name: doc.data().Name,
+                    address: doc.data().Address,
+                    email: doc.data().Email
                 })
             })
             setData(temp)
@@ -33,19 +30,18 @@ export default function ListUsers() {
                 leftComponent={{ icon: 'arrow-back', style: { color: '#fffff', fontSize: 14 }, onPress: () => navigation.navigate("HomePage") }} />
             <View style={styles.container1}>
                 <DataTable>
-                    {/* <DataTable.Row style={styles.row}>
+                    <DataTable.Row style={styles.row}>
+                        <DataTable.Title textStyle={styles.title}>Mail</DataTable.Title>
                         <DataTable.Title textStyle={styles.title}>Name</DataTable.Title>
                         <DataTable.Title textStyle={styles.title}>Address</DataTable.Title>
-                        <DataTable.Title textStyle={styles.title}>Mail</DataTable.Title>
-                    </DataTable.Row> */}
-                    {
-                    data.length >0 ?(data.map((item, index) => (
+                    </DataTable.Row>
+                    {data.length > 0 ? (data.map((item, index) => (
                         <DataTable.Row style={styles.row} key={index}>
-                            <DataTable.Title textStyle={styles.content}>{item.Name}</DataTable.Title>
-                            <DataTable.Title textStyle={styles.content}>{item.Address}</DataTable.Title>
-                            <DataTable.Title textStyle={styles.content}>{item.Email}</DataTable.Title>
+                            <DataTable.Title textStyle={styles.content}>{item.email}</DataTable.Title>
+                            <DataTable.Title textStyle={styles.content}>{item.name}</DataTable.Title>
+                            <DataTable.Title textStyle={styles.content}>{item.address}</DataTable.Title>
                         </DataTable.Row>
-                    ))):(<></>)}
+                    ))) : (<></>)}
                 </DataTable>
             </View>
             <ActivityIndicator animating={isLoading} style={styles.loading} size="large" color="#ffffff"></ActivityIndicator>
